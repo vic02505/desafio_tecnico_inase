@@ -1,0 +1,24 @@
+services:
+  php_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cake_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./inase_app:/var/www/html
+    depends_on:
+      - inase_database
+
+  inase_database:
+    image: mysql:8.0
+    container_name: inase_database_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: INASE_DATABASE
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
