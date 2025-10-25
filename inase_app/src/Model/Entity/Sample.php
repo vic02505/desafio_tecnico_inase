@@ -13,5 +13,4 @@ class Sample extends Entity
         'uuid' => false // el UUID no se puede modificar manualmente
     ];
 
-    // Si querés, podés agregar métodos personalizados aquí
 }

@@ -19,7 +19,7 @@
                 <td><?= h($sample->company) ?></td>
                 <td><?= h($sample->species) ?></td>
                 <td><?= h($sample->quantity) ?></td>
-                <td><?= !empty($sample->laboratory_analysis) ? '✅' : '❌' ?></td>
+                <td><?= !empty($sample->has_lab_analysis) ? '✅' : '❌' ?></td>
                 <td class="actions">
                     <button class="options-btn" title="Opciones">⚙️</button>
                 </td>

@@ -17,6 +17,8 @@ class SamplesTable extends Table
 
         $this->hasOne('LaboratoryAnalysis', [
             'foreignKey' => 'sample_uuid',
+            'bindingKey' => 'uuid',
+            'propertyName' => 'laboratory_analysis',
             'dependent' => true,
             'joinType' => 'LEFT'
         ]);

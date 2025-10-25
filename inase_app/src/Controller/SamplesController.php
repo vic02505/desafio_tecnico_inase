@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Log\Log;
+
+
 class SamplesController extends AppController
 {
     public function index()
@@ -13,7 +16,9 @@ class SamplesController extends AppController
             ->contain(['LaboratoryAnalysis'])
             ->all();
 
+
         foreach ($samples as $sample) {
+            Log::debug('Sample: ' . json_encode($sample->toArray()));
             $sample->has_lab_analysis = !empty($sample->laboratory_analysis);
         }
 
