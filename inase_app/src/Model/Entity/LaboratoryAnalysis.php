@@ -9,7 +9,7 @@ class LaboratoryAnalysis extends Entity
 {
 
     protected array $_accessible = [
-        '*' => true, // todos los campos asignables
-        'sample_uuid' => false // normalmente no se cambia manualmente
+        '*' => true,
+        'sample_uuid' => true
     ];
 }

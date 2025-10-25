@@ -9,7 +9,7 @@ CREATE TABLE  `INASE_DATABASE`.`samples` (
 );
 
 CREATE TABLE `INASE_DATABASE`.`laboratory_analysis` (
-    sample_uuid CHAR(36) NOT NULL,
+    sample_uuid CHAR(36) NOT NULL PRIMARY KEY ,
     germination_power DECIMAL(5,2) NOT NULL,
     purity DECIMAL(5,2) NOT NULL,
     inert_materials VARCHAR(255),

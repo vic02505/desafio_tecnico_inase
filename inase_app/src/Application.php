@@ -74,10 +74,19 @@ class Application extends BaseApplication
         $csrf = new CsrfProtectionMiddleware([
             'httponly' => true,
         ]);
+
         $csrf->skipCheckCallback(function ($request) {
             return $request->getParam('controller') === 'Samples'
                 && in_array($request->getParam('action'), ['add',  'edit', 'delete'], true);
         });
+
+        $csrf->skipCheckCallback(function ($request) {
+            $controller = $request->getParam('controller');
+            $action = $request->getParam('action');
+            return ($controller === 'Samples' && in_array($action, ['add',  'edit', 'delete'], true))
+                || ($controller === 'LaboratoryAnalysis' && $action === 'add');
+        });
+
         $middlewareQueue->add($csrf);
 
         return $middlewareQueue;

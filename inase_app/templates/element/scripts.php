@@ -41,8 +41,7 @@
             const uuid = editFields.uuid.value;
             if (!uuid) return alert('No se pudo obtener la muestra.');
 
-            const confirmar = confirm("¿Estás seguro de que querés eliminar la muestra?");
-            if (!confirmar) return;
+            if (!confirm("¿Estás seguro de que querés eliminar la muestra?")) return;
 
             try {
                 const response = await fetch(`/samples/delete/${uuid}`, {
@@ -50,7 +49,6 @@
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: '_method=DELETE'
                 });
-
                 if (response.ok) {
                     alert('Muestra eliminada correctamente.');
                     closeModal(editModal);
@@ -69,16 +67,17 @@
         const labModal = document.getElementById('labModal');
         const labFields = {
             sampleId: document.getElementById('lab_sample_id'),
-            germination: document.getElementById('lab_germination'),
+            germination_power: document.getElementById('lab_germination'),
             purity: document.getElementById('lab_purity'),
             inert: document.getElementById('lab_inert')
         };
 
+        // Abrir modal de laboratorio desde botones en la tabla
         document.querySelectorAll('.lab-analysis-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const tr = btn.closest('tr');
                 labFields.sampleId.value = tr.dataset.uuid;
-                labFields.germination.value = '';
+                labFields.germination_power.value = '';
                 labFields.purity.value = '';
                 labFields.inert.value = '';
                 openModal(labModal);
@@ -111,29 +110,47 @@
         // Abrir modal de edición o laboratorio desde opciones
         editOptionBtn?.addEventListener('click', () => {
             if (!currentUuid) return;
-
             const tr = document.querySelector(`tr[data-uuid="${currentUuid}"]`);
             editFields.uuid.value = currentUuid;
             editFields.seal.value = tr.children[0].textContent.trim();
             editFields.company.value = tr.children[1].textContent.trim();
             editFields.species.value = tr.children[2].textContent.trim();
             editFields.quantity.value = tr.children[3].textContent.trim();
-
             closeModal(optionsModal);
             openModal(editModal);
         });
 
         labOptionBtn?.addEventListener('click', () => {
             if (!currentUuid) return;
-
             const tr = document.querySelector(`tr[data-uuid="${currentUuid}"]`);
             labFields.sampleId.value = currentUuid;
-            labFields.germination.value = '';
+            labFields.germination_power.value = '';
             labFields.purity.value = '';
             labFields.inert.value = '';
-
             closeModal(optionsModal);
             openModal(labModal);
+        });
+
+        // ======= Submit del formulario de laboratorio (AJAX) =======
+        document.getElementById('labForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = new URLSearchParams(new FormData(e.target));
+            try {
+                const res = await fetch(e.target.action, {
+                    method: 'POST',
+                    body: data
+                });
+                if (res.ok) {
+                    alert('Análisis guardado correctamente.');
+                    closeModal(labModal);
+                    location.reload();
+                } else {
+                    alert('Error al guardar análisis.');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error inesperado.');
+            }
         });
 
     });

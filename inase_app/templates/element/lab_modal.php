@@ -24,13 +24,13 @@
 
         <h2>Gestionar Análisis de Laboratorio</h2>
 
-        <form id="labForm">
+        <form id="labForm" action="/laboratory-analysis/add" method="post">
             <!-- Hidden para asociar análisis a la muestra -->
             <input type="hidden" name="sample_uuid" id="lab_sample_id">
 
             <p>
                 <label>Poder germinativo (%):<br>
-                    <input type="number" name="germination" id="lab_germination" min="0" max="100" required>
+                    <input type="number" name="germination_power" id="lab_germination" min="0" max="100" required>
                 </label>
             </p>
             <p>
