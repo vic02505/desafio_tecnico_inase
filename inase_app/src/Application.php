@@ -76,7 +76,7 @@ class Application extends BaseApplication
         ]);
         $csrf->skipCheckCallback(function ($request) {
             return $request->getParam('controller') === 'Samples'
-                && in_array($request->getParam('action'), ['add'], true);
+                && in_array($request->getParam('action'), ['add',  'edit', 'delete'], true);
         });
         $middlewareQueue->add($csrf);
 
