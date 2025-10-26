@@ -85,7 +85,8 @@ class Application extends BaseApplication
             $action = $request->getParam('action');
 
             return ($controller === 'Samples' && in_array($action, ['add', 'edit', 'delete', 'view'], true))
-                || ($controller === 'LaboratoryAnalysis' && in_array($action, ['add', 'delete', 'view'], true));
+                || ($controller === 'LaboratoryAnalysis' && in_array($action, ['add', 'delete', 'view'], true))
+                || ($controller === 'Reports' && $action === 'data');
         });
 
         $middlewareQueue->add($csrf);
