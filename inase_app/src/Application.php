@@ -83,8 +83,9 @@ class Application extends BaseApplication
         $csrf->skipCheckCallback(function ($request) {
             $controller = $request->getParam('controller');
             $action = $request->getParam('action');
-            return ($controller === 'Samples' && in_array($action, ['add',  'edit', 'delete'], true))
-                || ($controller === 'LaboratoryAnalysis' && $action === 'add');
+
+            return ($controller === 'Samples' && in_array($action, ['add', 'edit', 'delete', 'view'], true))
+                || ($controller === 'LaboratoryAnalysis' && in_array($action, ['add', 'delete', 'view'], true));
         });
 
         $middlewareQueue->add($csrf);

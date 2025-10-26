@@ -14,7 +14,7 @@
         </thead>
         <tbody>
         <?php foreach ($samples as $sample): ?>
-            <tr data-uuid="<?= h($sample->uuid) ?>">
+            <tr data-uuid="<?= h($sample->uuid) ?>" data-has-lab="<?= !empty($sample->has_lab_analysis) ? '1' : '0' ?>">
                 <td><?= h($sample->seal_number) ?></td>
                 <td><?= h($sample->company) ?></td>
                 <td><?= h($sample->species) ?></td>

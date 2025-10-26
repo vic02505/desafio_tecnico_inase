@@ -99,7 +99,9 @@
                 currentUuid = tr.dataset.uuid;
 
                 const hasLab = tr.dataset.hasLab === '1';
-                labOptionBtn.textContent = hasLab ? 'Editar análisis de laboratorio' : 'Cargar análisis de laboratorio';
+                labOptionBtn.textContent = hasLab
+                    ? 'Ver/Editar análisis de laboratorio'
+                    : 'Cargar análisis de laboratorio';
 
                 openModal(optionsModal);
             });
@@ -120,13 +122,44 @@
             openModal(editModal);
         });
 
-        labOptionBtn?.addEventListener('click', () => {
+        labOptionBtn?.addEventListener('click', async () => {
             if (!currentUuid) return;
             const tr = document.querySelector(`tr[data-uuid="${currentUuid}"]`);
+            const hasLab = tr.dataset.hasLab === '1';
+
+            // Mostrar u ocultar el botón Eliminar según haya análisis
+            const deleteLabBtn = document.getElementById('deleteLabBtn');
+            deleteLabBtn.style.display = hasLab ? 'inline-block' : 'none';
+
+            // Setear el ID de muestra
             labFields.sampleId.value = currentUuid;
-            labFields.germination_power.value = '';
-            labFields.purity.value = '';
-            labFields.inert.value = '';
+
+            // Si ya tiene análisis, obtener los datos para precargar el formulario
+            if (hasLab) {
+                try {
+                    const res = await fetch(`/laboratory-analysis/view/${currentUuid}`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        labFields.germination_power.value = data.germination_power ?? '';
+                        labFields.purity.value = data.purity ?? '';
+                        labFields.inert.value = data.inert_materials ?? '';
+                    } else {
+                        console.warn('No se pudo obtener el análisis existente');
+                        labFields.germination_power.value = '';
+                        labFields.purity.value = '';
+                        labFields.inert.value = '';
+                    }
+                } catch (err) {
+                    console.error('Error cargando análisis:', err);
+                }
+            } else {
+                // Si no hay análisis previo, limpiar el formulario
+                labFields.germination_power.value = '';
+                labFields.purity.value = '';
+                labFields.inert.value = '';
+            }
+
+            // Mostrar modal
             closeModal(optionsModal);
             openModal(labModal);
         });
@@ -150,6 +183,34 @@
             } catch (err) {
                 console.error(err);
                 alert('Error inesperado.');
+            }
+        });
+
+        // ======= Eliminar análisis de laboratorio =======
+        const deleteLabBtn = document.getElementById('deleteLabBtn');
+
+        deleteLabBtn?.addEventListener('click', async () => {
+            const uuid = labFields.sampleId.value;
+            if (!uuid) return alert('No se pudo obtener la muestra asociada.');
+
+            if (!confirm("¿Estás seguro de que querés eliminar este análisis de laboratorio?")) return;
+
+            try {
+                const response = await fetch(`/laboratory-analysis/delete/${uuid}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    alert('Análisis eliminado correctamente.');
+                    closeModal(labModal);
+                    location.reload(); // refresca la tabla y actualiza el check
+                } else {
+                    const text = await response.text();
+                    alert('Error al eliminar el análisis: ' + text);
+                }
+            } catch (error) {
+                console.error('Error al eliminar análisis:', error);
+                alert('Error inesperado al eliminar.');
             }
         });
 
