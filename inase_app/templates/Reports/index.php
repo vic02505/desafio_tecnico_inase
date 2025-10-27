@@ -1,29 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Reporte de Muestras</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background-color: #f4f4f4; }
-        input, select, button { padding: 5px; margin-right: 10px; }
-        .filters { margin-bottom: 15px; }
-        .pagination { margin-top: 10px; }
-        .pagination button { padding: 5px 10px; margin-right: 5px; }
-    </style>
-</head>
-<body>
+<h1 class="page-title">Reporte de Muestras</h1>
 
-<h1>Reporte de Muestras</h1>
+<?= $this->element('styles') ?>
+
 
 <div class="filters">
     <label>Especie: <input type="text" id="filterSpecies" placeholder="Ej: Trigo"></label>
     <label>Fecha desde: <input type="date" id="filterStartDate"></label>
     <label>Fecha hasta: <input type="date" id="filterEndDate"></label>
-    <button onclick="fetchData(1)">Buscar</button>
-    <button onclick="resetFilters()">Limpiar</button>
+    <div style="display: flex; gap: 10px; align-items: center;">
+        <button onclick="fetchData(1)" style="
+        background-color: #b43c96;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+    ">Buscar</button>
+
+        <button onclick="resetFilters()" style="
+        background-color: #b43c96;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+    ">Limpiar</button>
+    </div>
 </div>
 
 <table id="samplesTable">
@@ -41,11 +55,42 @@
     <tbody></tbody>
 </table>
 
-<div class="pagination">
-    <button id="prevPage" onclick="changePage(-1)">Anterior</button>
+<div class="pagination" style="margin-top: 25px; text-align: center; display: flex; justify-content: center; gap: 25px;">
+    <button id="prevPage" onclick="changePage(-1)" style="
+        background-color: #b43c96;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        margin: 0 5px;
+    ">Anterior</button>
+
     <span id="pageInfo"></span>
-    <button id="nextPage" onclick="changePage(1)">Siguiente</button>
+
+    <button id="nextPage" onclick="changePage(1)" style="
+        background-color: #b43c96;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        margin: 0 5px;
+    ">Siguiente</button>
 </div>
+
 
 <script>
     const pageSize = 5;

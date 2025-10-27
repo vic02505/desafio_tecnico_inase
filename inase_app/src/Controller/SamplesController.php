@@ -24,7 +24,7 @@ class SamplesController extends AppController
 
         $this->set(compact('samples'));
 
-        $this->set('pageTitle', 'Módulo de Muestras');
+        $this->set('pageTitle', 'Módulo de gestión de muestras');
     }
 
     public function add()

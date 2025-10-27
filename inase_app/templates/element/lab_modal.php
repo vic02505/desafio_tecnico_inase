@@ -44,28 +44,40 @@
                 </label>
             </p>
 
-            <p style="display: flex; justify-content: space-between; gap: 10px;">
+            <p style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
                 <button type="submit" style="
-                    flex: 1;
-                    background-color: #4CAF50;
-                    color: white;
-                    border: none;
-                    padding: 10px;
-                    border-radius: 4px;
-                    cursor: pointer;
-                ">
+        background-color: #b43c96;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        min-width: 140px;
+    ">
                     Guardar Cambios
                 </button>
 
                 <button type="button" id="deleteLabBtn" style="
-                    flex: 1;
-                    background-color: #d9534f;
-                    color: white;
-                    border: none;
-                    padding: 10px;
-                    border-radius: 4px;
-                    cursor: pointer;
-                ">
+        background-color: #e70c29;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        min-width: 140px;
+    ">
                     Eliminar Análisis
                 </button>
             </p>

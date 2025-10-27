@@ -90,7 +90,7 @@ class ReportsController extends AppController
         } catch (\Throwable $e) {
             Log::error('Error en ReportsController::data(): ' . $e->getMessage());
             Log::error($e->getTraceAsString());
-            throw new InternalErrorException('Error al obtener datos del reporte');
+           // throw new InternalErrorException('Error al obtener datos del reporte');
         }
     }
 }

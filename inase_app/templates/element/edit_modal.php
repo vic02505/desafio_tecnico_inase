@@ -10,22 +10,24 @@
 ">
     <div style="
         background: white;
-        padding: 20px;
+        padding: 25px;
         border-radius: 6px;
-        width: 400px;
+        width: 450px; /* más ancho para que los botones quepan */
+        max-width: 90%; /* adaptable a pantallas pequeñas */
         position: relative;
     ">
         <span id="closeEditModal" style="
             position: absolute;
-            top: 10px; right: 10px;
-            cursor: pointer;
-            font-weight: bold;
+            top:10px; right:10px;
+            cursor:pointer;
+            font-weight:bold;
         ">×</span>
 
         <h2>Editar Muestra</h2>
         <form id="editForm" method="post" action="<?= $this->Url->build(['action' => 'edit']) ?>">
             <?= $this->Form->hidden('_method', ['value' => 'PATCH']) ?>
             <input type="hidden" name="uuid" id="edit_id">
+
             <p>
                 <label>Número de Precinto:<br>
                     <input type="text" name="seal_number" id="edit_seal" required>
@@ -46,31 +48,44 @@
                     <input type="number" name="quantity" id="edit_quantity" required>
                 </label>
             </p>
-            <p style="display: flex; justify-content: space-between; gap: 10px;">
+
+            <!-- Botones uno al lado del otro -->
+            <p style="display: flex; gap: 10px; justify-content: flex-start; flex-wrap: wrap; margin-top: 15px;">
                 <button type="submit" style="
-                    flex: 1;
-                    background-color: #4CAF50;
-                    color: white;
-                    border: none;
-                    padding: 10px;
-                    border-radius: 4px;
-                    cursor: pointer;
-                ">
+                background-color: #b43c96;
+                border: none;
+                color: white;
+                padding: 10px 20px; /* un poco más grande */
+                border-radius: 5px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: 500;
+                text-align: center;
+            ">
                     Guardar Cambios
                 </button>
 
                 <button type="button" id="deleteSampleBtn" style="
-                    flex: 1;
-                    background-color: #d9534f;
-                    color: white;
-                    border: none;
-                    padding: 10px;
-                    border-radius: 4px;
-                    cursor: pointer;
-                ">
+                background-color: #e70c29;
+                border: none;
+                color: white;
+                padding: 10px 20px; /* un poco más grande */
+                border-radius: 5px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                font-weight: 500;
+                text-align: center;
+            ">
                     Eliminar Muestra
                 </button>
             </p>
         </form>
     </div>
 </div>
+

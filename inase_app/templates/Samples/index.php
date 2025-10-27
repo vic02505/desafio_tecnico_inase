@@ -1,8 +1,20 @@
-<h1><?= h($pageTitle) ?></h1>
+<h1 class="page-title"><?= h($pageTitle) ?></h1>
 
 <!-- Botón para abrir modal -->
 <p>
-    <button id="openModal" class="button">Agregar Muestra</button>
+    <button id="openModal" class="button" style="background-color: #b43c96;
+        border: none;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;">
+        Agregar Muestra
+    </button>
 </p>
 
 <!-- Tabla de muestras -->

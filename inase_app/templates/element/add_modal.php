@@ -44,8 +44,20 @@
                     <input type="number" name="quantity" required>
                 </label>
             </p>
-            <p>
-                <button type="submit">Guardar</button>
+            <p style="display: flex; justify-content: center;">
+                <button type="submit" style="
+                    background-color: #b43c96;
+                    border: none;
+                    color: white;
+                    padding: 8px 15px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 14px;
+                    font-weight: 500;
+                ">Guardar</button>
             </p>
         </form>
     </div>

@@ -8,7 +8,7 @@
             <th>Empresa</th>
             <th>Especie</th>
             <th>Cantidad de semillas</th>
-            <th>Análisis</th>
+            <th>Análisis de laboratorio cargado</th>
             <th>Acciones</th>
         </tr>
         </thead>
