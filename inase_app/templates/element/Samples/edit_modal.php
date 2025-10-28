@@ -48,10 +48,11 @@
                     <input type="number" name="quantity" id="edit_quantity" required>
                 </label>
             </p>
-
-            <p style="display: flex; gap: 10px; justify-content: flex-start; flex-wrap: wrap; margin-top: 15px;">
-                <button type="submit" class="btn-pink"> Guardar Cambios </button>
-                <button type="button" id="deleteSampleBtn" class="btn-red">
+            <p style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                <button type="submit" class="btn-pink" style="flex: 1 1 200px; min-width: 120px;">
+                    Guardar Cambios
+                </button>
+                <button type="button" id="deleteSampleBtn" class="btn-red" style="flex: 1 1 200px; min-width: 120px;">
                     Eliminar Muestra
                 </button>
             </p>

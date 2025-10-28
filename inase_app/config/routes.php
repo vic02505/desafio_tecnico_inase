@@ -67,7 +67,6 @@ return function (RouteBuilder $routes): void {
 
         $builder->connect('/samples', ['controller' => 'Samples', 'action' => 'index']);
 
-
         /*
          * Connect catchall routes for all controllers.
          *

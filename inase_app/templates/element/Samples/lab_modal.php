@@ -10,16 +10,17 @@
 ">
     <div style="
         background: white;
-        padding: 20px;
+        padding: 25px;
         border-radius: 6px;
         width: 450px;
+        max-width: 90%;
         position: relative;
     ">
         <span id="closeLabModal" style="
             position: absolute;
-            top: 10px; right: 10px;
-            cursor: pointer;
-            font-weight: bold;
+            top:10px; right:10px;
+            cursor:pointer;
+            font-weight:bold;
         ">×</span>
 
         <h2>Gestionar Análisis de Laboratorio</h2>
@@ -42,11 +43,10 @@
                     <input type="text" name="inert_materials" id="lab_inert" placeholder="Ej: restos de paja, polvo, etc.">
                 </label>
             </p>
-
             <p style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <button type="submit" class="btn-pink"> Guardar Cambios </button>
-                <button type="button" id="deleteLabBtn" class="btn-red"> Eliminar Análisis </button>
+                <button type="submit" class="btn-pink" style="flex: 1 1 150px; min-width: 120px;">Guardar Cambios</button>
+                <button type="button" id="deleteLabBtn" class="btn-red" style="flex: 1 1 150px; min-width: 120px;">Eliminar Análisis</button>
             </p>
-        </form>
+
     </div>
 </div>

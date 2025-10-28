@@ -13,6 +13,7 @@
     font-size: 14px;
     font-weight: 500;
     text-align: center;
+    transition: background-color 0.2s;
 }
 
 /* Colores y tamaños para un botón rojo */
@@ -47,4 +48,14 @@
 .options-btn:hover {
     background-color: rgba(0, 123, 255, 0.1);
     transform: scale(1.1);
+}
+
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+
+    .btn-pink {
+        width: 100%;
+    }
+
 }

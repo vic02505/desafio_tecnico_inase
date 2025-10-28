@@ -1,5 +1,11 @@
+/* === Contenedor responsive === */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
 
-/* === Estilo general para todas las tablas tipo samples-table === */
+/* === Tabla general === */
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -7,6 +13,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     overflow: hidden;
+    min-width: 600px;
 }
 
 /* === Celdas y encabezados === */
@@ -14,6 +21,7 @@
 .data-table td {
     border-bottom: 1px solid #ddd;
     padding: 12px 15px;
+    white-space: nowrap;
 }
 
 .data-table th {
@@ -33,14 +41,16 @@
 }
 
 /* === Columnas específicas === */
-/* Columna de análisis centrada (para la tabla de samples) */
-.data-table td.analysis {
-    text-align: center;
-    font-size: 18px;
-}
-
-/* Columna de acciones centrada */
+.data-table td.analysis,
 .data-table td.actions {
     text-align: center;
+    font-size: 16px;
 }
 
+/* === Responsividad === */
+@media (max-width: 768px) {
+    .data-table th, .data-table td {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+}
