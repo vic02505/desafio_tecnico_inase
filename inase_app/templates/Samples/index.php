@@ -1,34 +1,28 @@
+<?= $this->Html->css('tables') ?>
+<?= $this->Html->css('buttons') ?>
+<?= $this->Html->css('actions') ?>
+<?= $this->Html->css('margins') ?>
+
 <h1 class="page-title"><?= h($pageTitle) ?></h1>
 
 <!-- Botón para abrir modal -->
 <p>
-    <button id="openModal" class="button" style="background-color: #b43c96;
-        border: none;
-        color: white;
-        padding: 8px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        font-weight: 500;">
+    <button id="openModal" class="btn-pink">
         Agregar Muestra
     </button>
 </p>
 
 <!-- Tabla de muestras -->
-<?= $this->element('table', ['samples' => $samples]) ?>
+<?= $this->element('Samples/table', ['samples' => $samples]) ?>
 
 <!-- Modals -->
-<?= $this->element('add_modal') ?>
-<?= $this->element('edit_modal') ?>
-<?= $this->element('lab_modal') ?>
-<?= $this->element('options_modal') ?>
+<?= $this->element('Samples/add_modal') ?>
+<?= $this->element('Samples/edit_modal') ?>
+<?= $this->element('Samples/lab_modal') ?>
+<?= $this->element('Samples/options_modal') ?>
 
-<!-- Scripts y estilos -->
-<?= $this->element('scripts') ?>
-<?= $this->element('styles') ?>
+<!-- Scripts  -->
+<?= $this->element('Samples/scripts') ?>
 
 
 

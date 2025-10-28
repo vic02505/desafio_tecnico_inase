@@ -1,7 +1,7 @@
 <?php if ($samples->isEmpty()): ?>
     <p>No hay muestras registradas.</p>
 <?php else: ?>
-    <table class="samples-table">
+    <table class="data-table">
         <thead>
         <tr>
             <th>Número de precinto</th>
@@ -19,9 +19,9 @@
                 <td><?= h($sample->company) ?></td>
                 <td><?= h($sample->species) ?></td>
                 <td><?= h($sample->quantity) ?></td>
-                <td><?= !empty($sample->has_lab_analysis) ? '✅' : '❌' ?></td>
+                <td class="analysis"><?= !empty($sample->has_lab_analysis) ? '✅' : '❌' ?></td>
                 <td class="actions">
-                    <button class="options-btn" title="Opciones">⚙️</button>
+                    <button class="actions; options-btn" title="Opciones">⚙️</button>
                 </td>
             </tr>
         <?php endforeach; ?>

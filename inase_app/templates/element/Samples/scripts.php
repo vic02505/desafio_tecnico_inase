@@ -1,16 +1,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // ======= Helpers =======
         const openModal = (modal) => modal.style.display = 'flex';
         const closeModal = (modal) => modal.style.display = 'none';
 
-        // ======= Add Sample Modal =======
         const addModal = document.getElementById('modalForm');
         document.getElementById('openModal')?.addEventListener('click', () => openModal(addModal));
         document.getElementById('closeModal')?.addEventListener('click', () => closeModal(addModal));
 
-        // ======= Edit Sample Modal =======
         const editModal = document.getElementById('editModal');
         const editFields = {
             uuid: document.getElementById('edit_id'),
@@ -21,7 +18,6 @@
         };
         const deleteBtn = document.getElementById('deleteSampleBtn');
 
-        // Abrir modal de edición desde botón en la tabla
         document.querySelectorAll('.edit-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const tr = btn.closest('tr');
@@ -36,7 +32,6 @@
 
         document.getElementById('closeEditModal')?.addEventListener('click', () => closeModal(editModal));
 
-        // Botón eliminar muestra
         deleteBtn?.addEventListener('click', async () => {
             const uuid = editFields.uuid.value;
             if (!uuid) return alert('No se pudo obtener la muestra.');
@@ -63,7 +58,6 @@
             }
         });
 
-        // ======= Laboratory Analysis Modal =======
         const labModal = document.getElementById('labModal');
         const labFields = {
             sampleId: document.getElementById('lab_sample_id'),
@@ -72,7 +66,6 @@
             inert: document.getElementById('lab_inert')
         };
 
-        // Abrir modal de laboratorio desde botones en la tabla
         document.querySelectorAll('.lab-analysis-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const tr = btn.closest('tr');
@@ -86,7 +79,6 @@
 
         document.getElementById('closeLabModal')?.addEventListener('click', () => closeModal(labModal));
 
-        // ======= Options Modal (engranaje) =======
         const optionsModal = document.getElementById('optionsModal');
         const closeOptions = document.getElementById('closeOptionsModal');
         const editOptionBtn = document.getElementById('optionsEditBtn');
@@ -109,7 +101,6 @@
 
         closeOptions?.addEventListener('click', () => closeModal(optionsModal));
 
-        // Abrir modal de edición o laboratorio desde opciones
         editOptionBtn?.addEventListener('click', () => {
             if (!currentUuid) return;
             const tr = document.querySelector(`tr[data-uuid="${currentUuid}"]`);
@@ -127,14 +118,11 @@
             const tr = document.querySelector(`tr[data-uuid="${currentUuid}"]`);
             const hasLab = tr.dataset.hasLab === '1';
 
-            // Mostrar u ocultar el botón Eliminar según haya análisis
             const deleteLabBtn = document.getElementById('deleteLabBtn');
             deleteLabBtn.style.display = hasLab ? 'inline-block' : 'none';
 
-            // Setear el ID de muestra
             labFields.sampleId.value = currentUuid;
 
-            // Si ya tiene análisis, obtener los datos para precargar el formulario
             if (hasLab) {
                 try {
                     const res = await fetch(`/laboratory-analysis/view/${currentUuid}`);
@@ -153,13 +141,11 @@
                     console.error('Error cargando análisis:', err);
                 }
             } else {
-                // Si no hay análisis previo, limpiar el formulario
                 labFields.germination_power.value = '';
                 labFields.purity.value = '';
                 labFields.inert.value = '';
             }
 
-            // Mostrar modal
             closeModal(optionsModal);
             openModal(labModal);
         });
@@ -203,7 +189,7 @@
                 if (response.ok) {
                     alert('Análisis eliminado correctamente.');
                     closeModal(labModal);
-                    location.reload(); // refresca la tabla y actualiza el check
+                    location.reload();
                 } else {
                     const text = await response.text();
                     alert('Error al eliminar el análisis: ' + text);

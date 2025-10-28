@@ -1,0 +1,46 @@
+
+/* === Estilo general para todas las tablas tipo samples-table === */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* === Celdas y encabezados === */
+.data-table th,
+.data-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px 15px;
+}
+
+.data-table th {
+    background-color: #b43c96;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* === Filas pares y hover === */
+.data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+    background-color: #e6f0ff;
+}
+
+/* === Columnas específicas === */
+/* Columna de análisis centrada (para la tabla de samples) */
+.data-table td.analysis {
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Columna de acciones centrada */
+.data-table td.actions {
+    text-align: center;
+}
+

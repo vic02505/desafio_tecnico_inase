@@ -1,0 +1,29 @@
+.search-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;            /* espacio entre campos */
+    align-items: center;
+    margin-bottom: 15px;  /* espacio debajo de los filtros */
+    font-size: 14px;       /* un tamaño un poco más pequeño */
+}
+
+.search-filters label {
+    display: flex;
+    flex-direction: column; /* etiqueta arriba del input */
+    margin: 0;
+    font-weight: 500;
+}
+
+.search-filters input {
+    padding: 6px 8px;      /* menos padding para inputs */
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 150px;           /* ancho fijo para uniformidad */
+}
+
+.search-filters .buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

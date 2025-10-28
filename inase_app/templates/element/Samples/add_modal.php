@@ -41,23 +41,11 @@
             </p>
             <p>
                 <label>Cantidad de semillas:<br>
-                    <input type="number" name="quantity" required>
+                    <input type="number" name="quantity" min="0" required>
                 </label>
             </p>
             <p style="display: flex; justify-content: center;">
-                <button type="submit" style="
-                    background-color: #b43c96;
-                    border: none;
-                    color: white;
-                    padding: 8px 15px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 14px;
-                    font-weight: 500;
-                ">Guardar</button>
+                <button type="submit" class="btn-pink"> Guardar </button>
             </p>
         </form>
     </div>

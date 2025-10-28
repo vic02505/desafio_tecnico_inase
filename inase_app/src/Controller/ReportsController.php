@@ -33,7 +33,6 @@ class ReportsController extends AppController
             $limit = (int)($this->request->getQuery('limit') ?? 5);
             $offset = ($page - 1) * $limit;
 
-            // --- Consulta base ---
             $query = $samplesTable->find()
                 ->select([
                     'uuid' => 'Samples.uuid',
@@ -45,7 +44,7 @@ class ReportsController extends AppController
                     'inert_materials' => 'LaboratoryAnalysis.inert_materials',
                     'analysis_date' => 'LaboratoryAnalysis.analysis_date'
                 ])
-                ->leftJoinWith('LaboratoryAnalysis');
+                ->innerJoinWith('LaboratoryAnalysis'); // <<< solo trae los que tienen análisis
 
             if (!empty($species)) {
                 $query->where(['Samples.species LIKE' => "%$species%"]);
@@ -57,8 +56,8 @@ class ReportsController extends AppController
                 $query->where(['LaboratoryAnalysis.analysis_date <=' => $endDate]);
             }
 
-            // --- Paginación manual (CakePHP 5 ya no usa el viejo PaginatorComponent) ---
             $total = $query->count();
+
             $rows = $query->limit($limit)->offset($offset)->all();
 
             $results = [];
@@ -82,7 +81,6 @@ class ReportsController extends AppController
                 'total' => $total,
             ];
 
-            // --- Devolver respuesta JSON sin buscar una plantilla ---
             return $this->response
                 ->withType('application/json')
                 ->withStringBody(json_encode(['response' => $response], JSON_UNESCAPED_UNICODE));
@@ -90,7 +88,13 @@ class ReportsController extends AppController
         } catch (\Throwable $e) {
             Log::error('Error en ReportsController::data(): ' . $e->getMessage());
             Log::error($e->getTraceAsString());
-           // throw new InternalErrorException('Error al obtener datos del reporte');
+
+            return $this->response
+                ->withType('application/json')
+                ->withStringBody(json_encode([
+                    'error' => 'Ocurrió un error al obtener los datos'
+                ], JSON_UNESCAPED_UNICODE));
         }
     }
+
 }

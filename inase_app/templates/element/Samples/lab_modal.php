@@ -25,7 +25,6 @@
         <h2>Gestionar Análisis de Laboratorio</h2>
 
         <form id="labForm" action="/laboratory-analysis/add" method="post">
-            <!-- Hidden para asociar análisis a la muestra -->
             <input type="hidden" name="sample_uuid" id="lab_sample_id">
 
             <p>
@@ -45,41 +44,8 @@
             </p>
 
             <p style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <button type="submit" style="
-        background-color: #b43c96;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        font-weight: 500;
-        text-align: center;
-        min-width: 140px;
-    ">
-                    Guardar Cambios
-                </button>
-
-                <button type="button" id="deleteLabBtn" style="
-        background-color: #e70c29;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        font-weight: 500;
-        text-align: center;
-        min-width: 140px;
-    ">
-                    Eliminar Análisis
-                </button>
+                <button type="submit" class="btn-pink"> Guardar Cambios </button>
+                <button type="button" id="deleteLabBtn" class="btn-red"> Eliminar Análisis </button>
             </p>
         </form>
     </div>
