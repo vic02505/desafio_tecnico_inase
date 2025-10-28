@@ -1,0 +1,56 @@
+.search-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.search-filters label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    margin: 0;
+}
+
+.search-filters input {
+    padding: 6px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 180px;
+    box-sizing: border-box;
+}
+
+.search-filters .buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* permite que los botones también se acomoden */
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    .search-filters {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: left;
+    }
+
+    .search-filters label {
+        width: 100%;
+    }
+
+    .search-filters input {
+        width: 100%;
+    }
+
+    .search-filters .buttons {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+}

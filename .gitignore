@@ -1,25 +1,77 @@
-# CakePHP 3
+# ---------------------------
+# CakePHP
+# ---------------------------
 
-/vendor/*
-/config/app.php
+# Composer vendor
+/vendor/
 
+# Configuración sensible de la app
+/config/app_local.php
+/config/.env
+
+# Cache
 /tmp/cache/models/*
 !/tmp/cache/models/empty
 /tmp/cache/persistent/*
 !/tmp/cache/persistent/empty
 /tmp/cache/views/*
 !/tmp/cache/views/empty
+
+# Sesiones
 /tmp/sessions/*
 !/tmp/sessions/empty
-/tmp/tests/*
-!/tmp/tests/empty
 
+# Logs
 /logs/*
 !/logs/empty
 
-# CakePHP 2
+# Tests temporales
+/tmp/tests/*
+!/tmp/tests/empty
 
-/app/tmp/*
-/app/Config/core.php
-/app/Config/database.php
-/vendors/*
+# ---------------------------
+# IDEs
+# ---------------------------
+
+# JetBrains (PhpStorm, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VSCode
+.vscode/
+
+# ---------------------------
+# Sistema operativo
+# ---------------------------
+
+# Linux
+*~
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---------------------------
+# Otros
+# ---------------------------
+
+# Archivos de entorno local
+.env
+.env.local
+.env.*.local
+
+# Node / npm (si usas frontend)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Archivos temporales de backup
+*.bak
+*.swp
+*.swo

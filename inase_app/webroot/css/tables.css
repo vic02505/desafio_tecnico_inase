@@ -1,0 +1,56 @@
+/* === Contenedor responsive === */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* === Tabla general === */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 600px;
+}
+
+/* === Celdas y encabezados === */
+.data-table th,
+.data-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px 15px;
+    white-space: nowrap;
+}
+
+.data-table th {
+    background-color: #b43c96;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* === Filas pares y hover === */
+.data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+    background-color: #e6f0ff;
+}
+
+/* === Columnas específicas === */
+.data-table td.analysis,
+.data-table td.actions {
+    text-align: center;
+    font-size: 16px;
+}
+
+/* === Responsividad === */
+@media (max-width: 768px) {
+    .data-table th, .data-table td {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+}
