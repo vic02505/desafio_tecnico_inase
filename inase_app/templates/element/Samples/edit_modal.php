@@ -30,7 +30,7 @@
 
             <p>
                 <label>Número de Precinto:<br>
-                    <input type="text" name="seal_number" id="edit_seal" required>
+                    <input type="text" name="seal_number" id="edit_seal" minlength="10" maxlength="10" required>
                 </label>
             </p>
             <p>
@@ -45,7 +45,7 @@
             </p>
             <p>
                 <label>Cantidad de semillas:<br>
-                    <input type="number" name="quantity" id="edit_quantity" required>
+                    <input type="number" name="quantity" id="edit_quantity" min="1" required>
                 </label>
             </p>
             <p style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">

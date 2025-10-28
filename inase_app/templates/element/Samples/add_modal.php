@@ -26,7 +26,7 @@
         <form id="sampleForm" method="post" action="<?= $this->Url->build(['action' => 'add']) ?>">
             <p>
                 <label>Número de Precinto:<br>
-                    <input type="text" name="seal_number" required>
+                    <input type="text" name="seal_number" minlength="10" maxlength="10" required>
                 </label>
             </p>
             <p>
@@ -41,7 +41,7 @@
             </p>
             <p>
                 <label>Cantidad de semillas:<br>
-                    <input type="number" name="quantity" min="0" required>
+                    <input type="number" name="quantity" min="1" required>
                 </label>
             </p>
             <p style="display: flex; justify-content: center;">
