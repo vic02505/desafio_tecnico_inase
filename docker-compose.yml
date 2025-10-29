@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   php_app:
     build:
@@ -6,8 +8,6 @@ services:
     container_name: cake_app
     ports:
       - "8080:80"
-    volumes:
-      - ./inase_app:/var/www/html
     depends_on:
       - inase_database
 
