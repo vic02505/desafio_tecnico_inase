@@ -119,7 +119,7 @@
             const hasLab = tr.dataset.hasLab === '1';
 
             const deleteLabBtn = document.getElementById('deleteLabBtn');
-            deleteLabBtn.style.display = hasLab ? 'inline-block' : 'none';
+            deleteLabBtn.style.display = hasLab ? '' : 'none';
 
             labFields.sampleId.value = currentUuid;
 
