@@ -27,7 +27,6 @@
 
         <form id="labForm" action="/laboratory-analysis/add" method="post">
             <input type="hidden" name="sample_uuid" id="lab_sample_id">
-
             <p>
                 <label>Poder germinativo (%):<br>
                     <input type="number" name="germination_power" id="lab_germination" min="0" max="100" required>
@@ -43,10 +42,10 @@
                     <input type="text" name="inert_materials" id="lab_inert" placeholder="Ej: restos de paja, polvo, etc.">
                 </label>
             </p>
-            <p style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <p style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
                 <button type="submit" class="btn-pink" style="flex: 1 1 150px; min-width: 120px;">Guardar Cambios</button>
                 <button type="button" id="deleteLabBtn" class="btn-red" style="flex: 1 1 150px; min-width: 120px;">Eliminar Análisis</button>
             </p>
-
+        </form>
     </div>
 </div>
