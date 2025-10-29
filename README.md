@@ -31,7 +31,7 @@ A continuación se detallan los pasos para la ejecución:
 4. En caso de querer limpiar los contenedores para volver a un estado inicial y volver a levantar la aplicación con datos limpios,  hay que ejecutar el siguiente comando:
 
    ```bash
-   docker-compose down 
+   docker compose down 
    ```
 
 Luego de esto, solo hay que repetir el paso 1.
