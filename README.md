@@ -14,13 +14,13 @@ PHP que simula un sistema de gestión de los laboratorios del INASE.
 Para ejecutar la aplicación es necesario clonar el repositorio y contar con Docker engine o Docker Desktop instalados.
 A continuación se detallan los pasos para la ejecución:
 
-1. Levantar los contenedores con Docker Compose:
+1. Desde el directorio raíz, se deben levantar los contenedores con Docker Compose:
 
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
     
-2. Para acceder a la aplicación, abrir un navegador web y dirigirse a la siguiente URL:
+2. Para acceder a la aplicación, basta con abrir un navegador web y dirigirse a la siguiente URL:
 
    ```
    http://localhost:8080/samples
@@ -28,7 +28,7 @@ A continuación se detallan los pasos para la ejecución:
 
 3. Para detener los contenedores basta con presionar `CTRL + C` en la terminal donde fue levantado el contenedor.
 
-4. En caso de querer limpiar los contenedores para volver a un estado inicial y volver a levantar la aplicación, ejecutar el siguiente comando:
+4. En caso de querer limpiar los contenedores para volver a un estado inicial y volver a levantar la aplicación con datos limpios,  hay que ejecutar el siguiente comando:
 
    ```bash
    docker-compose down 
@@ -52,7 +52,7 @@ resultados de análisis de laboratorio.
 
     ![img.png](imgs/home.png)
 
-2. **Modal para agregar muestras:** Al tocar el botón "Agregar muestra" se abre un modal para la carga de los datos de una m
+2. **Modal para agregar muestras:** Al tocar el botón "Agregar muestra" se abre un modal para la carga de los datos de una
 muestra.
 
     ![img.png](imgs/add_sample.png)
@@ -68,7 +68,7 @@ le puede cargar o editar su análisis de laboratorio.
     ![img.png](imgs/sample_edition.png)
 
 5. **Carga del análisis de laboratorio:** Modal que permite cargarle a una muestra su análisis de laboratorio. En
-caso de que ya haya un análisis preexistente el modal permitirá editar dicho análisis.
+caso de que ya haya un análisis preexistente el modal permitirá editar dicho análisis (o eliminarlo).
 
     ![img.png](imgs/lab_analisis.png)
 
