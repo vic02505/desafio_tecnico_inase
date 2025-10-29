@@ -6,7 +6,7 @@
 /vendor/
 
 # Configuración sensible de la app
-/config/app_local.php
+#/config/app_local.php
 /config/.env
 
 # Cache
