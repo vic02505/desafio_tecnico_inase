@@ -50,7 +50,7 @@ enlace:
 1. **Pantalla de inicio:** Módulo de gestión de muestras. Acá se pueden agregar muestras de semillas, editarlas y agregarles
 resultados de análisis de laboratorio.
 
-    ![imgs/home.png](imgs/home.png)
+    ![img.png](imgs/home.png)
 
 2. **Modal para agregar muestras:** Al tocar el botón "Agregar muestra" se abre un modal para la carga de los datos de una m
 muestra.
